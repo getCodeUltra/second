@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.conf import settings
-from letsgo.models import Places , Cafe
+from letsgo.models import Places
 import foursquare
 import logging
 from datetime import datetime, timedelta
@@ -43,24 +43,7 @@ def index(request):
 			)
 	return HttpResponseRedirect('/admin/letsgo/places')
 
-def cafe(request):
-	response = client.venues.search(
-		params={'ll': '39.9232611,32.859479',
-		 'ne': '39.9283391,32.861201',
-		 'sw': '39.9188267,32.8588045',
-		 'limit': 50}
-	)
 
-	for i in range(0,len(response.get('venues'))):
-		#logger.debug(response.get('venues')[i].get('categories')[0].get('name'))
-		if response.get('venues')[i].get('categories')[0].get('name') == 'Bar':
-			Cafe.objects.create(
-			name=response.get('venues')[i].get('name'),
-			place_id=response.get('venues')[i].get('id'),
-			checkins=response.get('venues')[i].get('stats').get('checkinsCount'),
-			herenow=response.get('venues')[i].get('hereNow').get('count'),
-				)
-	return HttpResponseRedirect ('/admin/letsgo/cafe')
 			
 
 
