@@ -1,5 +1,5 @@
 from django.contrib import admin
-from letsgo.models import Places, Cafe
+from letsgo.models import Places
 from datetime import datetime, timedelta
 # Register your models here.
 
