@@ -21,13 +21,5 @@ class Places(models.Model):
 
 
 
-class Cafe(models.Model):
-	time = models.DateField(auto_now_add=True)
-	place_id = models.CharField(max_length=250)
-	name = models.CharField(max_length=250)
-	herenow = models.IntegerField(blank=True, null=True)
-	checkins = models.IntegerField(blank=True, null=True)
-
-
 
 	
