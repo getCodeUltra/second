@@ -21,6 +21,5 @@ from letsgo import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^letsgo/',views.index),
-    url(r'^cafe/', views.cafe),
     url(r'^$', views.home),
 ]
